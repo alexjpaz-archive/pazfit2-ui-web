@@ -17,11 +17,12 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-sass": "~0.8.1",
     "grunt-contrib-watch": "~0.6.1",
     "karma": "~0.12.24",
-    "grunt-contrib-copy": "~0.6.0",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-sass": "~0.8.1"
+    "load-grunt-config": "^0.16.0"
   },
   "dependencies": {
     "grunt-bower": "~0.15.0"

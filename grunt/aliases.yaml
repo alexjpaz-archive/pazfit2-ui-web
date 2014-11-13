@@ -1,0 +1,4 @@
+default:
+    - bower
+    - concat
+    - copy
