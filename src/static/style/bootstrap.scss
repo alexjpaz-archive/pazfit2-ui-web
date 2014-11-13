@@ -1,0 +1,22 @@
+.navbar-left {
+	float: left;
+	margin-right: 0;
+	margin-left: 15px;
+}
+
+.navbar-brand--center {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	margin: auto;
+}
+
+
+.table--mini-xs {
+	td, th {
+		padding: 4px !important;
+		font-size: 12px !important;
+	}
+}
+

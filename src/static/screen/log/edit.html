@@ -1,0 +1,26 @@
+<div class='screen-log-edit'>
+	<form name='logEditForm' ng-submit='submit()'>
+		<div class='form-group'>
+			<label>Date</label>
+			<input type='date' name='date' ng-model='m.date' class='form-control' />
+		</div>
+		<div class='form-group'>
+			<label>Lift</label>
+			<span lift-input='m.lift'></span>
+		</div>
+		<div class='form-group'>
+			<label>Weight</label>
+			<input type='number' min='45' max='1500' step='5' ng-model='m.weight' class='form-control' />
+		</div>
+		<div class='form-group'>
+			<label>Reps</label>
+			<select ng-model='m.reps' ng-options='r as r for r in Profile.logEditForm.repRange' class='form-control'></select>
+		</div>
+		<hr />
+		<div class='form-group'>
+			<a href ng-click='save(m)' class='btn btn-default btn-primary btn-block'>Save Log</a>
+
+			<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>
+		</div>
+	</form>
+</div>

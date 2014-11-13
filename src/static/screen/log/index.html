@@ -1,0 +1,39 @@
+<div class='screen-log-index'>
+	<div class='table-responsive'>
+		<table class='table table-bordered table--mini-xs'>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th class='text-center'>S</th>
+					<th class='text-center'>L<span class='hidden-xs'>ift</span></th>
+					<th class='text-center'>W<span class='hidden-xs'>Weight</span></th>
+					<th class='text-center'>R<span class='hidden-xs'>Reps</span></th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat='l in logs'>
+				<td class='td__link'><a href='#/log/{{ l._id }}/edit'>{{ l.date | date:"yyyy-mm-dd" }}</a></td>
+				<td>
+					<span label-log-health='l'></span>
+					<span class='label label-danger'>{{ l.calculated.effectiveMax | number:0 }}</span>
+					<span class='label label--estimatedMax'>{{ l.calculated.estimatedMax | number:0 }}</span>
+					<span class='label label--targetMax'>{{ l.calculated.targetMax }}</span>
+				</td>
+				<td>{{ l.lift }}</td>
+				<td>{{ l.weight }}</td>
+				<td>{{ l.reps }}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class='form-group'>
+		<a href='#/log/new/edit' class='btn btn-primary btn-block'>Log Workout</a>
+	</div>
+
+	<!--<div layout-bottom-actions>-->
+		<!--<a href="#" class='btn btn-default'>Link</a></li>-->
+		<!--<a href="#">Link</a></li>-->
+	<!--</div>-->
+</div>

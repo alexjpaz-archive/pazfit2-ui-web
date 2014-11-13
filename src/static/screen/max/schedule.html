@@ -1,0 +1,75 @@
+<div class='screen-max-schedule'>
+	<form>
+		<fieldset>
+			<legend>Starting Maxes</legend>
+			<div class='form-group'>
+				<label>Press</label>
+				<input type='number' class='form-control' ng-model='s.press' />
+			</div>
+			<div class='form-group'>
+				<label>Deadlift</label>
+				<input type='number' class='form-control' ng-model='s.deadlift' />
+			</div>
+			<div class='form-group'>
+				<label>Bench</label>
+				<input type='number' class='form-control' ng-model='s.bench' />
+			</div>
+			<div class='form-group'>
+				<label>Squat</label>
+				<input type='number' class='form-control' ng-model='s.squat' />
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Cycle Settings</legend>
+			<div class='form-group'>
+				<label>Start Date</label>
+				<input type='date' class='form-control' ng-model='s.startDate' />
+			</div>
+			<div class='form-group'>
+				<label>Cycles</label>
+				<input type='number' min='1' max='24' class='form-control' ng-model='s.cycles' />
+			</div>
+			<div class='form-group'>
+				<label>Reset Interval</label>
+				<input type='number' min='0' max='7' class='form-control' ng-model='s.resetInterval' />
+			</div>
+		</fieldset>
+
+
+		<fieldset>
+			<legend>Projected Schedule</legend>
+			<div class='table-responsive'>
+			<table class='table table-responsive'>
+				<thead>
+					<tr>
+						<th class='text-right'>Date</th>
+						<th class='text-center'>P<span class='hidden-xs'>ress</span></th>
+						<th class='text-center'>D<span class='hidden-xs'>eadlift</span></th>
+						<th class='text-center'>B<span class='hidden-xs'>ench</span></th>
+						<th class='text-center'>S<span class='hidden-xs'>quat</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat='m in maxes'>
+						<td>
+							<span class='label label-danger' ng-if='m.$isReset'>R</span>
+							<div class='text-right pull-right'>
+							<span>{{ m.date | date:"MMM" }}</span>
+							<span class='text-muted'>{{ m.date | date:"yyyy-MM-dd" }}</span>
+						</div>
+						</td>
+						<td class='text-center'>{{ m.press }}</td>
+						<td class='text-center'>{{ m.deadlift }}</td>
+						<td class='text-center'>{{ m.bench }}</td>
+						<td class='text-center'>{{ m.squat }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</fieldset>
+	</form>
+	<div class='form-group'>
+		<button ng-click='saveSchedule()' class='btn btn-primary btn-block'>Save Schedule</button>
+	</div>
+</div>

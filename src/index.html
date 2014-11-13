@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PazFit 2</title>
+	<link rel="stylesheet" href="/static/bower/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/bower/dist/css/jasny-bootstrap.css">
+	<link rel="stylesheet" href="/static/concat.css">
+	<link rel="stylesheet" href="/static/build.css">
+  </head>
+  <body>
+	{%raw%}
+		<nav layout-topnav></nav>
+		<nav layout-offcanvas-left id='layout-offcanvas-left'></nav>
+		<nav layout-offcanvas-right id='layout-offcanvas-right'></nav>
+		<div class='container container--pad'>
+			<div ng-view></div>
+		</div>
+	{%endraw%}
+
+	<!--<style>-->
+		<!--.container--pad {-->
+			<!--padding-top: 80px;-->
+		<!--}-->
+	<!--</style>-->
+	<script src='/static/bower/dist/jquery.js'></script>
+	<script src='/static/bower/moment.js'></script>
+	<script src='/static/bower/dist/js/bootstrap.js'></script>
+	<script src='/static/bower/dist/js/jasny-bootstrap.js'></script>
+	<script src='/static/bower/dist/lodash.compat.js'></script>
+	<script src='/static/bower/angular.js'></script>
+	<script src='/static/bower/angular-route.js'></script>
+	<script src='/static/bower/dist/restangular.js'></script>
+	<script src='/static/build.js?v={{ version }}'></script>
+	<script>
+		angular.bootstrap(document, ['app']);
+	</script>
+  </body>
+</html>

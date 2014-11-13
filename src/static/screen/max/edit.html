@@ -1,0 +1,32 @@
+<div class='screen-max-edit'>
+	<form name='editMaxForm' ng-submit='submit()'>
+		<div class='form-group'>
+			<label>Date</label>
+			<input type='date' name='date' ng-model='m.date' class='form-control' />
+		</div>
+		<div class='form-group'>
+			<label>Press</label>
+			<span max-input='m.press'></span>
+		</div>
+		<div class='form-group'>
+			<label>Deadlift</label>
+			<span max-input='m.deadlift'></span>
+		</div>
+		<div class='form-group'>
+			<label>Bench</label>
+			<span max-input='m.bench'></span>
+		</div>
+		<div class='form-group'>
+			<label>Squat</label>
+			<span max-input='m.squat' name='buttt'></span>
+		</div>
+		<div class='form-group'>
+			<a href ng-click='save(m)' class='btn btn-default btn-primary btn-block'>Save Max</a>
+			<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>
+		</div>
+		<div class='form-group'>
+			<a href ng-click='save(m)' class='btn btn-default btn-primary btn-block'>Save Max</a>
+			<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>
+		</div>
+	</form>
+</div>

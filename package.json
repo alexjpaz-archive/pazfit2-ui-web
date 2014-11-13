@@ -1,0 +1,29 @@
+{
+  "name": "paz-fit2",
+  "version": "2.0.0",
+  "description": "paz-fit2 ========",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexjpaz/paz-fit2"
+  },
+  "author": "alexjpaz@gmail.com",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/alexjpaz/paz-fit2/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "karma": "~0.12.24",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-sass": "~0.8.1"
+  },
+  "dependencies": {
+    "grunt-bower": "~0.15.0"
+  }
+}

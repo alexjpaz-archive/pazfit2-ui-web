@@ -1,0 +1,22 @@
+.label-log-health .label {
+	padding-left: 5px;
+	text-align: center;
+}
+
+
+.label-log-health .label:empty { display: inline }
+
+.label-log-health--EXCELLENT::before { color: white; content:"\e006"}
+.label-log-health--EXCELLENT { background: gold;}
+
+.label-log-health--GOOD::before { color: white; content:"\e013"}
+.label-log-health--GOOD { background: green; }
+
+.label-log-health--OK::before { color: white; content:"\2212"}
+.label-log-health--OK { background: grey; }
+
+.label-log-health--BAD::before { color: white; content:"\e126"}
+.label-log-health--BAD { background: red; }
+
+.label-log-health--UNKNOWN::before { color: white; content:"?"}
+.label-log-health--UNKNOWN { background: grey; }
