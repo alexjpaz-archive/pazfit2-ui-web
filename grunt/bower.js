@@ -1,7 +1,5 @@
 module.exports = {
-    bower: {
-        dist: {
-            dest: 'dist/static/bower'
-        },
-    }
+	dist: {
+		dest: 'dist/static/bower'
+	},
 };

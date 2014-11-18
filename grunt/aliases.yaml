@@ -2,3 +2,7 @@ default:
     - bower
     - concat
     - copy
+
+serve:
+    - default
+    - watch
