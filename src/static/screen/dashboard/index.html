@@ -1,6 +1,26 @@
 <div class='screen-dashboard-index'>
 	<div class='col-md-12'>
-		<div b-panel='Events' class='panel-primary'>
+		<div b-panel='Stats' class='panel-primary'>
+			<div class='table-responsive'>
+				<table class='table table-bordered'>
+					<thead>
+						<tr>
+							<th>Lift</th>
+							<th>Max</th>
+							<th>Current</th>
+							<th>Best</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Press</td>
+							<td>{{ latestMax.press }}</td>
+							<td>{{ latestLog.press }}</td>
+							<td>{{ bestLog.press }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<div class='col-md-6'>
