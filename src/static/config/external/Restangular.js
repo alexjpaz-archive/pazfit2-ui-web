@@ -1,6 +1,8 @@
-angular.module('app').config(function($httpProvider, RestangularProvider) {
+angular.module('app').config(function($httpProvider, RestangularProvider, AppConfig) {
 	$httpProvider.defaults.useXDomain = true;
-	RestangularProvider.setBaseUrl('http://pazfit2-services.herokuapp.com/');
+	RestangularProvider.setBaseUrl(AppConfig.Restangular.baseUrl);
+
+	console.debug(AppConfig.Restangular.baseUrl);
 
 	RestangularProvider.setRestangularFields({
 		id: "_id",
