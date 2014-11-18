@@ -19,21 +19,25 @@ angular.module('app').config(function(ScreenProvider) {
 			
 			function getLatestLogs() {
 				$scope.latestLog = {};
+				$scope.bestLog = {};
 
 				angular.forEach(Profile.lifts, function(v,lift) {
 					var query = {
 						max_results: 1,
 						page: 1,
-						where: {},
+						where: {
+							lift: lift
+						},
 						sort: '-date'
 					};
 
-					//query.where[lift] = {
-						//date: { '$
-					//};
-
 					Restangular.all('log').getList(query).then(function(log) {
-						$scope.latestMax[lift] = log;
+						$scope.latestLog[lift] = log[0];
+					});
+
+					query.sort = '-calculated.estimatedMax,-date';
+					Restangular.all('log').getList(query).then(function(log) {
+						$scope.bestLog[lift] = log[0];
 					});
 				});
 			}

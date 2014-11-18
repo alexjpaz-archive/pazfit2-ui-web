@@ -12,16 +12,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Press</td>
-							<td>{{ latestMax.press }}</td>
-							<td>{{ latestLog.press }}</td>
-							<td>{{ bestLog.press }}</td>
+						<tr ng-repeat='lift in Profile.liftsOrder'>
+							<td>{{ Profile.lifts[lift].label }}</td>
+							<td>{{ latestMax[lift] }}</td>
+							<td>
+								<a ng-href='#/log/{{ latestLog[lift]._id }}'>{{ latestLog[lift].calculated.estimatedMax | number:1 }}</a>
+							</td>
+							<td>
+								<a ng-href='#/log/{{ bestLog[lift]._id }}'>{{ bestLog[lift].calculated.estimatedMax | number:1 }}</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<pre>{{ latestLog }}</pre>
 	</div>
 	<div class='col-md-6'>
 		<div b-panel='Events' class='panel-primary'>
