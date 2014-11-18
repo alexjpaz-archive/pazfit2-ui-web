@@ -28,6 +28,12 @@
 	<script src='/static/build.js?v={{ version }}'></script>
 	<script>
 		angular.bootstrap(document, ['app']);
+
+		angular.module('app').constant('OverrideAppConfig', {
+			Restangular: {
+				baseUrl: 'http://paz-fit2.herokuapp.com',
+			}
+		});
 	</script>
   </body>
 </html>
