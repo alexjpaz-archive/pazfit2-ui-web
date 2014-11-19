@@ -10,6 +10,16 @@ angular.module('app').config(function($httpProvider, RestangularProvider, AppCon
 		selfLink: "_links.self.href"
 	});
 
+	RestangularProvider.setMethodOverriders = ['PUT','DELETE'];
+
+	RestangularProvider.setDefaultHeaders({
+		'Content-Type': 'application/json',
+		'X-Requested-With': 'XMLHttpRequest'
+	});
+	RestangularProvider.setDefaultHttpFields({
+		//'withCredentials': false
+	});
+
 	RestangularProvider.addRequestInterceptor(function(element, operation) {
 		var transformedElement = element;
 
