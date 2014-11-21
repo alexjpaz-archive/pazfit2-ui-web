@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PazFit 2</title>
-	<link rel="stylesheet" href="/static/bower/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="/static/bower/dist/css/jasny-bootstrap.css">
-	<link rel="stylesheet" href="/static/concat.css">
-	<link rel="stylesheet" href="/static/build.css">
+	<link rel="stylesheet" href="static/bower/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="static/bower/dist/css/jasny-bootstrap.css">
+	<link rel="stylesheet" href="static/concat.css">
+	<link rel="stylesheet" href="static/build.css">
   </head>
   <body>
 		<nav layout-topnav></nav>
@@ -17,23 +17,17 @@
 		<div class='container container--pad'>
 			<div ng-view></div>
 		</div>
-	<script src='/static/bower/dist/jquery.js'></script>
-	<script src='/static/bower/moment.js'></script>
-	<script src='/static/bower/dist/js/bootstrap.js'></script>
-	<script src='/static/bower/dist/js/jasny-bootstrap.js'></script>
-	<script src='/static/bower/dist/lodash.compat.js'></script>
-	<script src='/static/bower/angular.js'></script>
-	<script src='/static/bower/angular-route.js'></script>
-	<script src='/static/bower/dist/restangular.js'></script>
-	<script src='/static/build.js'></script>
+	<script src='static/bower/dist/jquery.js'></script>
+	<script src='static/bower/moment.js'></script>
+	<script src='static/bower/dist/js/bootstrap.js'></script>
+	<script src='static/bower/dist/js/jasny-bootstrap.js'></script>
+	<script src='static/bower/dist/lodash.compat.js'></script>
+	<script src='static/bower/angular.js'></script>
+	<script src='static/bower/angular-route.js'></script>
+	<script src='static/bower/dist/restangular.js'></script>
+	<script src='static/build.js'></script>
 	<script>
 		angular.bootstrap(document, ['app']);
-
-		angular.module('app').constant('OverrideAppConfig', {
-			Restangular: {
-				baseUrl: 'http://paz-fit2.herokuapp.com',
-			}
-		});
 	</script>
   </body>
 </html>

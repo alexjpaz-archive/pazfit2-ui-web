@@ -1,8 +1,7 @@
 angular.module('app').config(function($httpProvider, RestangularProvider, AppConfig) {
-	$httpProvider.defaults.useXDomain = true;
 	RestangularProvider.setBaseUrl(AppConfig.Restangular.baseUrl);
 
-	console.debug(AppConfig.Restangular.baseUrl);
+	console.debug(RestangularProvider);
 
 	RestangularProvider.setRestangularFields({
 		id: "_id",
@@ -10,19 +9,11 @@ angular.module('app').config(function($httpProvider, RestangularProvider, AppCon
 		selfLink: "_links.self.href"
 	});
 
-	RestangularProvider.setMethodOverriders = ['PUT','DELETE'];
+	RestangularProvider.setSelfLinkAbsoluteUrl(false);
 
-	RestangularProvider.setDefaultHeaders({
-		'Content-Type': 'application/json',
-		'X-Requested-With': 'XMLHttpRequest'
-	});
-	RestangularProvider.setDefaultHttpFields({
-		//'withCredentials': false
-	});
 
 	RestangularProvider.addRequestInterceptor(function(element, operation) {
 		var transformedElement = element;
-
 
 		if(operation === "put") {
 			delete transformedElement._id;

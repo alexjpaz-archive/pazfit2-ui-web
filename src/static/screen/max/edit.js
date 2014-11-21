@@ -1,7 +1,7 @@
 angular.module('app').config(function(ScreenProvider) {
 	ScreenProvider.register('screen-max-edit', {
 		ScreenTitle: 'Edit Max',
-		controller: function($scope, $routeParams, Restangular, $location) {
+		controller: function($scope, $routeParams, Restangular, $location, $http) {
 
 			if($routeParams.id !== 'new') {
 				var r = Restangular.one('max',$routeParams.id);
