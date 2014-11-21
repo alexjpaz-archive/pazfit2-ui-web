@@ -12,7 +12,7 @@
 			</thead>
 			<tbody>
 			<tr ng-repeat='l in logs'>
-				<td class='td__link'><a href='#/log/{{ l._id }}/edit'>{{ l.date | date:"yyyy-mm-dd" }}</a></td>
+				<td class='td__link'><a href='#/log/{{ l._id }}/edit'>{{ l.date | date:"yyyy-MM-dd" }}</a></td>
 				<td>
 					<span label-log-health='l'></span>
 					<span class='label label-danger'>{{ l.calculated.effectiveMax | number:0 }}</span>

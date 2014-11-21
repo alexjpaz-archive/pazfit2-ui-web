@@ -12,6 +12,16 @@
 	margin: auto;
 }
 
+.table {
+	&--squish {
+
+		&, & > table {
+			margin-bottom: 0;
+		}
+
+	}
+}
+
 
 .table--mini-xs {
 	td, th {
@@ -20,3 +30,29 @@
 	}
 }
 
+.panel {
+	&--full {
+		.panel-body {
+			padding: 0;
+		}
+	}
+
+	&__btn-visibility {
+		color: white;
+
+		&::before {
+			font-family: 'Glyphicons Halflings';
+			content: "22";
+		}
+
+		&.true::before {
+			content: "\e105";
+		}
+
+		&.false::before {
+			content: "\e106";
+		}
+	}
+
+	
+}

@@ -4,8 +4,20 @@
 
 .label--estimatedMax {
 	background: blue;
+
+	> a {
+		color: white;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .label--targetMax {
 	background: purple;
+}
+
+.label--effectiveMax {
+	background: #d9534f;
 }

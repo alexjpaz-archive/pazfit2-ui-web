@@ -1,7 +1,7 @@
 <div class='screen-dashboard-index'>
 	<div class='col-md-12'>
-		<div b-panel='Stats' class='panel-primary'>
-			<div class='table-responsive'>
+		<div b-panel='Stats' class='panel-primary panel--full'>
+			<div class='table-responsive table--squish'>
 				<table class='table table-bordered'>
 					<thead>
 						<tr>
@@ -12,25 +12,39 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat='lift in Profile.liftsOrder'>
-							<td>{{ Profile.lifts[lift].label }}</td>
-							<td>{{ latestMax[lift] }}</td>
-							<td>
-								<a ng-href='#/log/{{ latestLog[lift]._id }}'>{{ latestLog[lift].calculated.estimatedMax | number:1 }}</a>
-							</td>
-							<td>
-								<a ng-href='#/log/{{ bestLog[lift]._id }}'>{{ bestLog[lift].calculated.estimatedMax | number:1 }}</a>
-							</td>
-						</tr>
+					<tr ng-repeat='lift in Profile.liftsOrder'>
+						<td>{{ Profile.lifts[lift].label | na }}</td>
+						<td><span class='label label--effectiveMax'>{{ latestMax[lift] | na }}</span></td>
+						<td>
+							<span ng-hide='latestLog[lift]'>
+								N/A
+							</span>
+							<span ng-show='latestLog[lift]'>
+								<span label-log-health='latestLog[lift]'></span>
+								<span class='label label--estimatedMax'>
+									<a ng-href='#/log/{{ latestLog[lift]._id }}/edit'>{{ latestLog[lift].calculated.estimatedMax | number:0 }}</a>
+								</span>
+							</span>
+						</td>
+						<td>
+							<span ng-hide='bestLog[lift]'>
+								N/A
+							</span>
+							<span ng-show='bestLog[lift]'>
+
+								<span label-log-health='bestLog[lift]'></span>
+								<span class='label label--estimatedMax'>
+									<a ng-href='#/log/{{ bestLog[lift]._id }}/edit'>{{ bestLog[lift].calculated.estimatedMax | number:0 }}</a>
+								</span>
+							</span>
+						</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<pre>{{ latestLog }}</pre>
-	</div>
-	<div class='col-md-6'>
-		<div b-panel='Events' class='panel-primary'>
-			lol
+		<div b-panel='Stats' class='panel-primary panel--full'>
+			<chart='multiline' data=''></chart>
 		</div>
 	</div>
 </div>
