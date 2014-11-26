@@ -26,7 +26,7 @@ module.exports = {
 		proxies: [
 			{
 				context: '/api',
-				host: 'localhost',
+				host: process.env.PAZFIT2_SERVICES_HOST || 'pazfit2-services',
 				port: 5000,
 				xforward: true,
 				rewrite: {
