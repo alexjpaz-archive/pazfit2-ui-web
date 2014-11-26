@@ -3,7 +3,7 @@ module.exports = {
 		options: {
 			port: 9001,
 			keepalive: true,
-			hostname: 'localhost',
+			hostname: '0.0.0.0',
 			base: 'dist',
 			middleware: function (connect, options) {
 				var proxy = require('grunt-connect-proxy/lib/utils').proxyRequest;
@@ -26,7 +26,7 @@ module.exports = {
 		proxies: [
 			{
 				context: '/api',
-				host: '127.0.0.1',
+				host: 'pazfit2-services',
 				port: 5000,
 				xforward: true,
 				rewrite: {
