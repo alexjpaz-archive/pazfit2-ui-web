@@ -21,7 +21,8 @@ module.exports = {
 			'src/static/directive/**/*.js',
 			'src/static/filter/**/*.js',
 			'src/static/component/**/*.js',
-			'src/static/screen/**/*.js'
+			'src/static/screen/**/*.js',
+			'src/static/environment.js'
 		],
 		dest: 'dist/static/build.js'
 	},

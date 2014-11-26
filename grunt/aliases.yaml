@@ -5,4 +5,5 @@ default:
 
 serve:
     - default
+    - configureProxies:server
     - connect

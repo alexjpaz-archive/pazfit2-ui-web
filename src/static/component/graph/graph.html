@@ -1,0 +1,11 @@
+<div class='graph'>
+	<svg>
+		<path d='{{ f.pathl(graph) }}' fill='none' stroke='blue' />
+		
+		<g transform='translate({{hx}},0)'>
+			<line y2='2000' stroke='black' />
+		</g>
+	</svg>
+	<pre>{{ graph }} </pre>
+	<p>{{ hx }}</p>
+</div>

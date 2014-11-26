@@ -42,8 +42,22 @@ angular.module('app').config(function(ScreenProvider) {
 				});
 			}
 
+			function getLogs() {
+				var g = [];
+
+				for(var i=0; i<20; i++) {
+					g[i] = {
+						x: i,
+						y: Math.random(20)
+					};
+				}
+
+				$scope.graphData = g;
+			}
+
 			getLatestLogs();
 			getLatestMax();
+			getLogs();
 		}
 	});
 });
