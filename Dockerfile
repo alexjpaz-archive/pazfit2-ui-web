@@ -7,7 +7,9 @@ RUN apt-get update
 
 RUN apt-get install -y git
 
+RUN apt-get install -y ruby
 
+RUN gem install sass
 
 RUN apt-get install -y nodejs
 
