@@ -2,4 +2,4 @@
 
 cd /var/paz-fit2
 
-grunt serve
+exec grunt serve

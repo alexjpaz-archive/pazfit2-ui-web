@@ -1,6 +1,7 @@
 default:
     - bower
     - concat
+    - sass
     - copy
 
 serve:
