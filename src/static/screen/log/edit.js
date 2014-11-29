@@ -1,27 +1,38 @@
 angular.module('app').config(function(ScreenProvider) {
 	ScreenProvider.register('screen-log-edit', {
 		ScreenTitle: 'Log Workout',
-		controller: function($scope, $location, $routeParams, Restangular) {
+		controller: function($scope, $routeParams, Restangular) {
+			$scope.q = {};
 			var r = null;
-			if($routeParams.id !== 'new') {
-				r = Restangular.one('log',$routeParams.id);
-				r.get().then(function(m) {
-					$scope.m = m;
-					$scope.m.date = new Date($scope.m.date);
-				});
-			} else {
-				$scope.m = Restangular.one('log');
-				$scope.m.date = new Date();
-				$scope.m.reps = 5;
-			}
 
-
-			$scope.save = function(m) {
-				m.save().then(function(m) {
-					$location.path('/log');
+			$scope.getLog = function(id) {
+				Restangular.one('log', id).get().then(function(l) {
+					$scope.l = l;
 				});
 			};
 
+			if($routeParams.id !== 'new') {
+				$scope.getLog($routeParams.id);
+			} else {
+				$scope.l = Restangular.one('log');
+				$scope.l.date = new Date();
+				$scope.l.reps = 5;
+			}
+
+			$scope.save = function(m) {
+				$scope.error = null;
+				
+				var q;
+
+				$scope.q.save = q = m.save();
+
+				q.then(function(l) {
+					$scope.l._etag = l._etag;
+					$scope.getLog(l._id);
+				}, function(rsp) {
+					$scope.error = rsp.data;
+				});
+			};
 		}
 	});
 });

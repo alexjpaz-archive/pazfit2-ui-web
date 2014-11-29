@@ -1,0 +1,7 @@
+.screen-log-edit {
+
+	&__saved {
+	/*btn btn-default btn-success btn-block	*/
+		background: red;
+	}
+}

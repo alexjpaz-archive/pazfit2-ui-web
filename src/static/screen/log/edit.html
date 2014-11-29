@@ -1,26 +1,46 @@
 <div class='screen-log-edit'>
+  <code>{{ l._etag.slice(0,6) }}2</code>
+  <button ng-click='getLog(l._id)'>refresh</button>
 	<form name='logEditForm' ng-submit='submit()'>
 		<div class='form-group'>
 			<label>Date</label>
-			<input type='date' name='date' ng-model='m.date' class='form-control' />
+			<input type='date' name='date' ng-model='l.date' class='form-control' />
 		</div>
 		<div class='form-group'>
 			<label>Lift</label>
-			<span lift-input='m.lift'></span>
+			<span lift-input='l.lift'></span>
 		</div>
 		<div class='form-group'>
 			<label>Weight</label>
-			<input type='number' min='45' max='1500' step='5' ng-model='m.weight' class='form-control' />
+			<input type='number' min='45' max='1500' step='5' ng-model='l.weight' class='form-control' />
 		</div>
 		<div class='form-group'>
 			<label>Reps</label>
-			<select ng-model='m.reps' ng-options='r as r for r in Profile.logEditForm.repRange' class='form-control'></select>
+			<select ng-model='l.reps' ng-options='r as r for r in Profile.logEditForm.repRange' class='form-control'></select>
+		</div>
+		<hr />
+		<div class='screen-log-edit__calculated'>
+			<code>{{ l.calculated }}</code>
 		</div>
 		<hr />
 		<div class='form-group'>
-			<a href ng-click='save(m)' class='btn btn-default btn-primary btn-block'>Save Log</a>
-
-			<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>
+			<div promise='q.save'>
+				<div class='alert alert-info' promise-show='busy'>
+					<span>Saving</span>
+				</div>
+				<div class='alert alert-danger' promise-show='rejected'>
+					<span>{{ promise.$error.statusText }}</span>
+				</div>
+				<div class='alert alert-success' ng-show='promise.$object && !promise.$error'>
+					<span>Success</span>
+				</div>
+				<div> 
+					<a href ng-click='save(l)' class='btn btn-default btn-primary btn-block'>Save Log</a>
+				</div>
+			</div>
+			<!--<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>-->
 		</div>
+
 	</form>
+	<pre>{{ l | json }}</pre>
 </div>

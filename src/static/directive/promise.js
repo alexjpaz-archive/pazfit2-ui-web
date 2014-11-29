@@ -12,6 +12,8 @@ angular.module('app').directive('promise', function($q) {
 
 				currentPromise = when;
 
+				$scope.promise = currentPromise;
+
 				angular.forEach(promiseListeners, function(pl, ii) {
 					if(angular.isFunction(pl)) {
 						pl(currentPromise);
@@ -20,12 +22,16 @@ angular.module('app').directive('promise', function($q) {
 
 				$attrs.$addClass('promise--busy');
 
-				when.then(function() {
+				when.then(function($object) {
 					$attrs.$addClass('promise--resolved');
 					$attrs.$removeClass('promise--busy');
+
+					console.debug(arguments);
+
+					when.$object = $object;
 				});
 
-				when['catch'](function() {
+				when['catch'](function($object) {
 					$attrs.$addClass('promise--rejected');
 					$attrs.$removeClass('promise--busy');
 					angular.forEach(promiseListeners.catchFns, function(pl, ii) {
@@ -35,6 +41,9 @@ angular.module('app').directive('promise', function($q) {
 							//promiseListeners.catchFns.splice(ii, 1);
 						}
 					});
+
+					when.$object = $object;
+					when.$error = $object;
 				});
 			});
 
