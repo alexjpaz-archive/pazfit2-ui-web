@@ -3,7 +3,10 @@ angular.module('app').config(function(ScreenProvider) {
 		ScreenTitle: 'List Log',
 		controller: function($scope, Restangular) {
 			$scope.getLogList = function() {
-				Restangular.all('log').getList().then(function(logs) {
+				var query = {
+					sort: '-date'
+				};
+				Restangular.all('log').getList(query).then(function(logs) {
 					$scope.logs = logs;
 				});
 			};

@@ -5,6 +5,7 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 		controller: function($scope) {
 			$scope.health = 'UNKNOWN';
 			$scope.$watch('labelLogHealth', function(l) {
+				if(angular.isUndefined(l)) return;
 				if(angular.isDefined(l.calculated)) {
 					var mx = l.calculated.effectiveMax;
 					var tm = l.calculated.targetMax;
@@ -20,7 +21,6 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 						$scope.health = 'BAD';
 					} 
 
-					$scope.health
 				}
 			});
 		},
