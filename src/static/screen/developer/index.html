@@ -1,16 +1,5 @@
 <div class='screen-developer-index'>
-	<table class='table table-bordered'>
-		<tr ng-repeat='l in logs'>
-			<td>
-				<button ng-click='l.get()'>get</button>
-				<button ng-click='get2($index, l._id)'>get2</button>
-				<button ng-click='l.save()'>save</button>
-			</td>
-			<td>{{ l._id.slice(0,6) }}</td>
-			<!--<td>{{ l._etag.slice(0,6) }}</td>-->
-			<td>{{ logsDiff[$index] }}</td>
-		</tr>
-	</table>
-	<pre>{{ logs | json }}</pre>
-	<pre>{{ logsDiff | json }}</pre>
+	<div b-panel='stats' class='panel-primary panel--full'>
+		<div chart='graphData' type='multiline'></div>
+	</div>
 </div>

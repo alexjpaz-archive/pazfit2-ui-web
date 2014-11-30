@@ -1,4 +1,18 @@
 angular.module('app').config(function(ComponentProvider, d3) {
+	var Graph = function(element) {
+		var that = this;
+
+		var el = {
+			width: element.width(),
+			height: 200
+		};
+
+		this.updateDomain = function(data) {
+
+		};
+	};
+
+
 	ComponentProvider.register('graph', {
 		componentGroup: 'graph',
 		scope: {
@@ -6,27 +20,37 @@ angular.module('app').config(function(ComponentProvider, d3) {
 			'type': '@'
 		},
 		link: function(scope, element, attrs) {
-			var svgEl = element.find('svg');
+			var graph = new Graph(element);
 
-			scope.f = {};
+			//var f = {
 
-			scope.f.pathl = d3.svg.line()
-					.x(function(d) { return d.x * 50; })
-					.y(function(d) { return d.y * 100; })
-					.interpolate("step-before");
+			//}, // functions
+			//el = element.find('svg');
+			//sx = d3.time.scale(),
+			//sy = d3.scale.linear();
 
+			//f.pathl = d3.svg.line()
+			//.x(function(d,i) { return d.x * 200; })
+			//.y(function(d,i) { return d.y * 5; })
+			//.interpolate("step-before");
 
-			element.bind('mousemove', function(e) {
-				scope.hx = e.clientX - this.offset().x;
-				scope.$apply();
-			});
+			//f.rX = function(d) { return d.x; };
+			//f.rY = function(d) { return d.y; };
 
+			var update = function(graph) {
+				if(angular.isUndefined(graph)) {
+					return;
+				}
 
-			element.bind('mouseout', function(e) {
-				scope.hx = -9999;
-				scope.$apply();
-			});
-			//scope.$watch('graph', draw);
+				$scope.ready = false;
+				
+				graph.updateDomain(graph);
+
+				$scope.ready = true;
+			};
+
+			$scope.graph = graph;
+			scope.$watch('graph', update);
 		}
 	});
 });

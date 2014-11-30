@@ -1,34 +1,37 @@
 angular.module('app').config(function(ScreenProvider) {
     ScreenProvider.register('screen-developer-index', {
         ScreenTitle: 'Log Workout',
-        controller: function($scope, Restangular) {
-            $scope.logsDiff = [];
-            $scope.logs = [];
+		controller: function($scope, Restangular, Profile, moment) {
 
-            var query = {
-                sort: '-date'
-            };
-            Restangular.all('log').getList(query).then(function(logs) {
-                $scope.logs = logs;
-            });
+			var data = {
+				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				datasets: [
+					{
+					label: "My First dataset",
+					fillColor: "rgba(220,220,220,0.2)",
+					strokeColor: "rgba(220,220,220,1)",
+					pointColor: "rgba(220,220,220,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(220,220,220,1)",
+					data: [65, 59, 80, 81, 56, 55, 40]
+				},
+				{
+					label: "My Second dataset",
+					fillColor: "rgba(151,187,205,0.2)",
+					strokeColor: "rgba(151,187,205,1)",
+					pointColor: "rgba(151,187,205,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(151,187,205,1)",
+					data: [28, 48, 40, 19, 86, 27, 90]
+				}
+				]
+			};		
 
-            $scope.get2 = function(index, id) {
-                Restangular.one('log', id).get().then(function(log) {
-                    $scope.logs[index] = log;
-                });
-            };
+			$scope.graphData = data;
+		}
 
-            $scope.$watch('logs', function(n,o) {
-                for(var i=0;i<n.length;i++) {
-                    if(n[i] === o[i]) {
-                        $scope.logsDiff[i] = true; 
-                    } else {
-                        $scope.logsDiff[i] = false; 
-                    }
-                }
-
-            }, true);
-        }
     });
 });
 

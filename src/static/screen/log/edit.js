@@ -5,9 +5,13 @@ angular.module('app').config(function(ScreenProvider) {
 			$scope.q = {};
 			var r = null;
 
-			$scope.getLog = function(id) {
+			$scope.getLog = function(id, partial) {
 				Restangular.one('log', id).get().then(function(l) {
-					$scope.l = l;
+					if(partial) {
+						$scope.l.calculated = l.calculated;
+					} else {
+						$scope.l = l;
+					}
 				});
 			};
 
@@ -28,7 +32,7 @@ angular.module('app').config(function(ScreenProvider) {
 
 				q.then(function(l) {
 					$scope.l._etag = l._etag;
-					$scope.getLog(l._id);
+					$scope.getLog(l._id, true);
 				}, function(rsp) {
 					$scope.error = rsp.data;
 				});

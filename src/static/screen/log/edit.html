@@ -1,6 +1,6 @@
 <div class='screen-log-edit'>
-  <code>{{ l._etag.slice(0,6) }}2</code>
-  <button ng-click='getLog(l._id)'>refresh</button>
+  <!--<code>{{ l._etag.slice(0,6) }}2</code>-->
+  <!--<button ng-click='getLog(l._id)'>refresh</button>-->
 	<form name='logEditForm' ng-submit='submit()'>
 		<div class='form-group'>
 			<label>Date</label>
@@ -20,7 +20,10 @@
 		</div>
 		<hr />
 		<div class='screen-log-edit__calculated'>
-			<code>{{ l.calculated }}</code>
+			<span label-log-health='l'></span>
+			<span class='label label-danger'>{{ l.calculated.effectiveMax | number:0 }}</span>
+			<span class='label label--estimatedMax'>{{ l.calculated.estimatedMax | number:0 }}</span>
+			<span class='label label--targetMax'>{{ l.calculated.targetMax }}</span>
 		</div>
 		<hr />
 		<div class='form-group'>
@@ -42,5 +45,4 @@
 		</div>
 
 	</form>
-	<pre>{{ l | json }}</pre>
 </div>
