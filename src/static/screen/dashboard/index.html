@@ -7,7 +7,7 @@
 						<tr>
 							<th>Lift</th>
 							<th>Max</th>
-							<th>Current</th>
+							<th>Previous</th>
 							<th>Best</th>
 						</tr>
 					</thead>
@@ -31,11 +31,13 @@
 								N/A
 							</span>
 							<span ng-show='bestLog[lift]'>
-
 								<span label-log-health='bestLog[lift]'></span>
 								<span class='label label--estimatedMax'>
 									<a ng-href='#/log/{{ bestLog[lift]._id }}/edit'>{{ bestLog[lift].calculated.estimatedMax | number:0 }}</a>
 								</span>
+								<span class='label label-default'>
+									{{ bestLog[lift].weight }} x {{ bestLog[lift].reps }}
+								</div>
 							</span>
 						</td>
 					</tr>
@@ -43,8 +45,31 @@
 				</table>
 			</div>
 		</div>
-		<div b-panel='Stats' class='panel-primary panel--full'>
-			<div chart='chart'></div>
+		<hr />
+		<div class='row'>
+			<div class='col-md-6'>
+				<div b-panel='Press' class='panel-default panel--full'>
+					<div chart='charts.press'></div>
+				</div>
+			</div>
+
+			<div class='col-md-6'>
+				<div b-panel='Deadlift' class='panel-default panel--full'>
+					<div chart='charts.deadlift'></div>
+				</div>
+			</div>
+
+			<div class='col-md-6'>
+				<div b-panel='Bench' class='panel-default panel--full'>
+					<div chart='charts.bench'></div>
+				</div>
+			</div>
+
+			<div class='col-md-6'>
+				<div b-panel='Squat' class='panel-default panel--full'>
+					<div chart='charts.squat'></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
