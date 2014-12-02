@@ -1,6 +1,6 @@
 module.exports = {
-	serve: {
-		tasks: ['watch'],
+	dev: {
+		tasks: ['watch', 'serve'],
 		options: {
 			logConcurrentOutput: true
 		}

@@ -4,7 +4,10 @@ default:
     - sass
     - copy
 
-serve:
+dev:
     - default
+    - concurrent:dev
+
+serve:
     - configureProxies:server
     - connect
