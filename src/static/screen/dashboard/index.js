@@ -24,7 +24,7 @@ angular.module('app').config(function(ScreenProvider) {
 
 				angular.forEach(Profile.lifts, function(v,lift) {
 					var query = {
-						max_results: 30,
+						max_results: 1000,
 						page: 1,
 						where: {
 							lift: lift
@@ -88,6 +88,9 @@ angular.module('app').config(function(ScreenProvider) {
 						//tooltipTemplate: "ass",
 							multiTooltipTemplate: "<%= datasetLabel %>: <%= value %>",
 						responsive: true,
+						scaleIntegersOnly: true,
+						datasetFill: false,
+						pointDot: false,
 						//legendTemplate: 'fart'
 
 					}
@@ -95,7 +98,7 @@ angular.module('app').config(function(ScreenProvider) {
 
 					angular.forEach(logs, function(log, i) {
 						var str = moment(log.date).format('YYYY-MM-DD').toString();
-						chart.data.labels.unshift(str);
+						chart.data.labels.unshift(''); // HACK
 						chart.data.datasets[0].data.unshift(log.calculated.estimatedMax);
 						chart.data.datasets[1].data.unshift(log.calculated.effectiveMax);
 						chart.data.datasets[2].data.unshift(log.calculated.targetMax);

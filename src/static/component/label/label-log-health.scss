@@ -1,0 +1,25 @@
+.label-log-health .label {
+	padding-left: 5px;
+	text-align: center;
+
+	&:empty { 
+		display: inline;
+	}
+}
+
+@mixin label-log-health($color, $iconCode) {
+	background: $color;
+
+	&::before {
+		color: white;
+		content: $iconCode;
+	}
+}
+
+.label-log-health-- {
+	&EXCELLENT { @include label-log-health(gold, '\e006'); }
+	&GOOD { @include label-log-health(green, '\e013'); }
+	&OK { @include label-log-health(grey, '\2212'); }
+	&BAD { @include label-log-health(red, '\e126'); }
+	&UNKNOWN { @include label-log-health(grey, '\e085'); }
+}

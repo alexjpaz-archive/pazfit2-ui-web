@@ -1,7 +1,7 @@
 module.exports = {
-	dist_css: {
-		src: ['src/static/**/*.css'],
-		dest: 'dist/static/concat.css'
+	dist_scss: {
+		src: ['src/style.scss','src/static/**/*.css','src/static/{component,screen}/**/*.scss'],
+		dest: '.tmp/concat.scss'
 	},
 	dist: {
 		src: [

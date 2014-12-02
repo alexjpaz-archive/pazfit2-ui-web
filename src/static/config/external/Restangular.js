@@ -32,6 +32,21 @@ angular.module('app').config(function($httpProvider, RestangularProvider, AppCon
         return transformedElement;
     });
 
+
+	if(AppConfig.Restangular.cacheHack) {
+		RestangularProvider.addFullRequestInterceptor(function() {
+			// I shouldn't have to do this. Maybe I'm misunderstanding the whole Cache thing
+			// but it doesn't seem to honor anything else.
+			var overrides = {
+				headers : {
+					"If-Modified-Since": "Mon, 01 Jan 1970 00:00:00 GMT"
+				}
+			};
+
+			return overrides;
+		});
+	}
+
     RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
         var extractedData = data;
 

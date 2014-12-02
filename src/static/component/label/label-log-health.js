@@ -11,6 +11,9 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 					var tm = l.calculated.targetMax;
 					var es = l.calculated.estimatedMax;
 
+					tm = Math.round(tm);
+
+
 					if(es > tm && es > mx) {
 						$scope.health = 'EXCELLENT';
 					} else if(es < tm && es > mx) {
@@ -20,7 +23,6 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 					} else if(es < tm && es < mx) {
 						$scope.health = 'BAD';
 					} 
-
 				}
 			});
 		},
