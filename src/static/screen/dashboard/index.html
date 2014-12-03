@@ -20,10 +20,7 @@
 								N/A
 							</span>
 							<span ng-show='latestLog[lift]'>
-								<span label-log-health='latestLog[lift]'></span>
-								<span class='label label--estimatedMax'>
-									<a ng-href='#/log/{{ latestLog[lift]._id }}/edit'>{{ latestLog[lift].calculated.estimatedMax | number:0 }}</a>
-								</span>
+								<span label-log-stats='latestLog[lift]'></span>
 							</span>
 						</td>
 						<td>
@@ -31,13 +28,7 @@
 								N/A
 							</span>
 							<span ng-show='bestLog[lift]'>
-								<span label-log-health='bestLog[lift]'></span>
-								<span class='label label--estimatedMax'>
-									<a ng-href='#/log/{{ bestLog[lift]._id }}/edit'>{{ bestLog[lift].calculated.estimatedMax | number:0 }}</a>
-								</span>
-								<span class='label label-default'>
-									{{ bestLog[lift].weight }} x {{ bestLog[lift].reps }}
-								</div>
+								<span label-log-stats='bestLog[lift]'></span>
 							</span>
 						</td>
 					</tr>

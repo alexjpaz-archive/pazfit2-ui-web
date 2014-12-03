@@ -2,6 +2,7 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 	ComponentProvider.register('label-log-health', {
 		componentGroup: 'label',
 		scope: {'labelLogHealth':'='},
+		replace: true,
 		controller: function($scope) {
 			$scope.health = 'UNKNOWN';
 			$scope.$watch('labelLogHealth', function(l) {
