@@ -1,0 +1,20 @@
+
+
+.dashboard-calendar {
+	&__main {
+		background: blue;
+		height: 100%;
+	}
+
+	&__tri {
+		&--previous, &--current, &--next {
+		background: red;
+		height: 100px;
+		margin: 4px 0;
+		}
+
+		&--previous, &--next {
+			opacity: 0.5;
+		}
+	}
+}

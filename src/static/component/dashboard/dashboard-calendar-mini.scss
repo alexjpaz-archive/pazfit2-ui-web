@@ -1,0 +1,27 @@
+.dashboard-calendar-mini {
+	width: 142px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	border: 1px solid gray;
+
+	&__day {
+		float: left;
+		width: 20px;
+		height: 20px;
+		/* outline: 1px solid gray; */
+		/* margin-left: -1px; */
+		/* margin-top: -1px; */
+		border: 1px solid gray;
+
+	}
+
+	&__log, &__max {
+		width: 4px;
+		height: 4px;
+		margin: 2px;
+		float: left;
+	}
+
+	&__log { background: blue; }
+	&__max { background: red; }
+}
