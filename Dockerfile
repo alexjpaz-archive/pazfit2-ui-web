@@ -20,6 +20,7 @@ COPY . /var/paz-fit2
 
 RUN cd /var/paz-fit2 && npm install
 RUN cd /var/paz-fit2 && bower --allow-root install
+RUN cd /var/paz-fit2 && grunt
 
 ENTRYPOINT /var/paz-fit2/docker-entrypoint
 
