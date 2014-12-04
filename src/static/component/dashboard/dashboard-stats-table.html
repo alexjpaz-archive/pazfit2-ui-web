@@ -1,0 +1,36 @@
+<div class='dashboard-stats-table'>
+	<div class='table-responsive table--squish'>
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Lift</th>
+					<th>Max</th>
+					<th>Previous</th>
+					<th>Best</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat='lift in Profile.liftsOrder'>
+				<td>{{ Profile.lifts[lift].label | na }}</td>
+				<td><span class='label label--effectiveMax'>{{ latestMax[lift] | na }}</span></td>
+				<td>
+					<span ng-hide='latestLog[lift]'>
+						N/A
+					</span>
+					<span ng-show='latestLog[lift]'>
+						<span label-log-stats='latestLog[lift]'></span>
+					</span>
+				</td>
+				<td>
+					<span ng-hide='bestLog[lift]'>
+						N/A
+					</span>
+					<span ng-show='bestLog[lift]'>
+						<span label-log-stats='bestLog[lift]'></span>
+					</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

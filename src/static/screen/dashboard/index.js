@@ -2,19 +2,19 @@ angular.module('app').config(function(ScreenProvider) {
 	ScreenProvider.register('screen-dashboard-index', {
 		ScreenTitle: 'Dashboard',
 		controller: function($scope, Restangular, Profile, moment) {
+			$scope.calendar = {
+				events: []
+			};
 			$scope.charts = {};
 
 			function getLatestMax() { 
 				var query = {
-					max_results: 1,
 					page: 1,
-					where: {
-						press: { '$lte' : 90 }
-
-					}
 				};	
 				Restangular.all('max').getList(query).then(function(maxes) {
-					$scope.latestMax = maxes[0];
+					angular.forEach(maxes, function(max) {
+						$scope.calendar.events.push(max);
+					});
 				});
 			}
 			
@@ -36,6 +36,10 @@ angular.module('app').config(function(ScreenProvider) {
 						$scope.latestLog[lift] = log[0];
 
 						updateChart(log, lift);
+
+						angular.forEach(log, function(l) {
+							$scope.calendar.events.push(l);
+						});
 					});
 
 					query.sort = '-calculated.estimatedMax,-date';

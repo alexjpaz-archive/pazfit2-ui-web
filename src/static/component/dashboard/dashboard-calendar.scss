@@ -1,19 +1,20 @@
-
-
 .dashboard-calendar {
-	&__main {
-		height: 100%;
-	}
+	height: 100%;
 
-	&__tri {
-		&--previous, &--current, &--next {
-		background: red;
-		height: 100px;
-		margin: 4px 0;
+	.event {
+		&--max, &--log {
+			height: 12px !important;
+			width: 12px !important;
+			line-height: 12px;
+		}
+		&--max {
+			background: $max-color !important;
+			top: auto !important;
+			bottom: 0 !important;
 		}
 
-		&--previous, &--next {
-			opacity: 0.5;
+		&--log {
+			background: $log-color !important;
 		}
 	}
 }
