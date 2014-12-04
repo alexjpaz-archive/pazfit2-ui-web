@@ -1,0 +1,14 @@
+
+.clndr--mini {
+	font-size: 10px;
+
+	& .day,
+	& .month,
+	& .header-day {
+		padding: 0 !important;
+	}
+}
+
+.clndr--full {
+	max-width: 100%;
+}

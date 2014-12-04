@@ -1,6 +1,22 @@
 <div class='dashboard-calendar-mini'>
-	<div class='dashboard-calendar-mini__day' ng-repeat='d in days'>
-		<div class='dashboard-calendar-mini__log' ng-show='d.log'></div>
-		<div class='dashboard-calendar-mini__max' ng-show='d.max'></div>
+	<tien-clndr class="clndr clndr--mini" tien-clndr-object="clndr" tien-clndr-events="events">
+	<div class="clndr-controls">
+		<div class="month">
+			{{month}}
+		</div>
 	</div>
+	<div class="clndr-grid">
+		<div class="days-of-the-week">
+			<div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
+				{{day}}
+			</div>
+		</div>
+		<div class="days">
+			<div class="{{day.classes}}" ng-repeat="day in days">
+				<div class="event-indicator" ng-show="day.events.length" ng-click="showEvents(day.events)">{{day.events.length}}</div>
+				{{day.day}}
+			</div>
+		</div>
+	</div>
+	</tien-clndr>
 </div>
