@@ -4,7 +4,7 @@ angular.module('app').config(function(ScreenProvider) {
 		controller: function($scope, Restangular) {
 			$scope.q = {};
 			$scope.getMaxList = function() {
-				$scope.q.max = Restangular.all('max').getList().then(function(maxes) {
+				$scope.q.max = Restangular.all('max').getList({sort:'-date'}).then(function(maxes) {
 					$scope.maxes = maxes;
 				});
 			};

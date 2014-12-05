@@ -1,20 +1,35 @@
 .dashboard-calendar {
 	height: 100%;
 
-	.event {
-		&--max, &--log {
-			height: 12px !important;
-			width: 12px !important;
-			line-height: 12px;
-		}
-		&--max {
-			background: $max-color !important;
-			top: auto !important;
-			bottom: 0 !important;
-		}
+	.days {
+		.event {
+			&--max, &--log {
+				height: 12px !important;
+				width: 12px !important;
+				line-height: 12px;
+			}
+			&--max {
+				background: $max-color !important;
+				top: auto !important;
+				bottom: 0 !important;
+			}
 
-		&--log {
-			background: $log-color !important;
+			&--log {
+				background: $log-color !important;
+			}
 		}
+	}
+
+	.day {
+		cursor: pointer;
+
+		&.active {
+			color: blue;
+		}
+	}
+
+	&__selectedDay {
+		& .event--max { background: $max-color; }
+		& .event--log { background: $log-color; }
 	}
 }

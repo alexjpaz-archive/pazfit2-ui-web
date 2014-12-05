@@ -1,0 +1,8 @@
+<span class='label-maxes'>
+	<span class='label label--effectiveMax'>
+		<span ng-hide='labelMaxes'>N/A</span>
+		<span ng-if='labelMaxes' ng-repeat='(lift, key) in Profile.liftsOrder'>
+			<span>{{ labelMaxes[key] }}</span>
+		</span>
+	</div>
+</span>

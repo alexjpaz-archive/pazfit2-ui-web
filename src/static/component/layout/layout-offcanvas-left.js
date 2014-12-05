@@ -3,7 +3,8 @@ angular.module('app').config(function(ComponentProvider,StringHelper) {
 		componentGroup: 'layout',
 		replace: true,
 		link: function(scope, element) {
-			element.bind('click', function() {
+			element.find('a').bind('click', function() {
+				element.offcanvas('hide');
 			});
 		}
 	});

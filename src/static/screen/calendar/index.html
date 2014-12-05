@@ -1,0 +1,21 @@
+<div class='screen-calendar-index'>
+	<div class='clearfix'>
+		<div dashboard-calendar='calendar' select='selectDay(day, clndr)'></div>
+	</div>
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Max</th>
+				<th>Log</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat='ev in selectedDay.events'> 
+			<tr>
+				<td>{{ ev.date | date:"yyyy-MM-dd" }}</td>
+				<td><div label-maxes='ev.max'></div></td>
+				<td><div label-log-stats='ev.log'></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

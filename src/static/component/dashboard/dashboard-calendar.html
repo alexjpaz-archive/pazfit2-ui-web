@@ -18,9 +18,9 @@
 			</div>
 		</div>
 		<div class="days">
-			<div class="{{day.classes}}" ng-repeat="day in days">
-				<div class="event-indicator event--max" ng-show="day.events.length && !day.events[0].lift" ng-click="showEvents(day.events)"> </div>
-				<div class="event-indicator event--log" ng-show="day.events.length && day.events[0].lift" ng-click="showEvents(day.events)"> </div>
+			<div class="{{day.classes}}" ng-class='{"active": clndr.active === day}' ng-repeat="day in days"  ng-click="select({day:day, clndr:clndr})" >
+				<div class="event-indicator event--max" ng-show="day.events.length && day.events[0].max"></div>
+				<div class="event-indicator event--log" ng-show="day.events.length && day.events[0].log"></div>
 				<span>{{day.day}}</span>
 			</div>
 		</div>

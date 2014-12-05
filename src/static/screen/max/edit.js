@@ -5,7 +5,7 @@ angular.module('app').config(function(ScreenProvider) {
 
 			if($routeParams.id !== 'new') {
 				var r = Restangular.one('max',$routeParams.id);
-				r.get().then(function(m) {
+				r.get({sort:"-date"}).then(function(m) {
 					$scope.m = m;
 					$scope.m.date = new Date($scope.m.date);
 				});

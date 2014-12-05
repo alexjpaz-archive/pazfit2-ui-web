@@ -1,19 +1,50 @@
 angular.module('app').config(function(ScreenProvider) {
 	ScreenProvider.register('screen-dashboard-index', {
 		ScreenTitle: 'Dashboard',
-		controller: function($scope, Restangular, Profile, moment) {
+		controller: function($scope, Restangular, Profile, moment, $location, CalendarHelper) {
 			$scope.calendar = {
 				events: []
 			};
 			$scope.charts = {};
 
+			$scope.clickCalendar = function(day) {
+				$location
+					.path('/calendar')
+					.search('date',day.date)
+				;
+			};
+
+			CalendarHelper.getEvents().then(function(calendar) {
+				$scope.calendar = calendar;
+			});
+
+			function updateEvents(event) {
+				return;
+				var exists = false;
+				angular.forEach($scope.calendar.events, function(ev) {
+					if(ev.date === event.date) {
+						exists = true;
+						angular.extend(ev, event);
+					}
+				});
+
+				if(!exists) {
+					$scope.calendar.events.push(event);
+				}
+			}
+
 			function getLatestMax() { 
 				var query = {
+					max_results: 1000,
 					page: 1,
+					sort: '-date'
 				};	
 				Restangular.all('max').getList(query).then(function(maxes) {
 					angular.forEach(maxes, function(max) {
-						$scope.calendar.events.push(max);
+						updateEvents({
+							date: max.date,
+							max: max
+						});
 					});
 				});
 			}
@@ -37,8 +68,13 @@ angular.module('app').config(function(ScreenProvider) {
 
 						updateChart(log, lift);
 
+
+
 						angular.forEach(log, function(l) {
-							$scope.calendar.events.push(l);
+							updateEvents({
+								date: l.date,
+								log: l
+							});
 						});
 					});
 
