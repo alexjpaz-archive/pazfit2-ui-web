@@ -21,8 +21,23 @@
 			<span max-input='m.squat' name='buttt'></span>
 		</div>
 		<div class='form-group'>
-			<a href ng-click='save(m)' class='btn btn-default btn-primary btn-block'>Save Max</a>
-			<a href ng-click='m.remove()' class='btn btn-default btn-primary btn-block'>Delete Max</a>
+			<div>
+				<div ng-show='check.logs.length > 0'>
+					<div class='alert alert-warning'>
+						<strong>Logs will be affected if you change this Max!</strong>
+						<p><a href ng-show='!check.showMore' ng-click='check.showMore = true'>Show {{check.logs.length }}</a></p>
+						<div ng-show='check.showMore'>
+							<div ng-repeat='log in check.logs'>{{ log.date | date:"yyyy-MM-dd"}}</div>
+						</div>
+					</div>
+					<a href ng-click='save(m)' class='btn btn-default btn-warning btn-block' >Save Max</a>
+				</div>
+				<div ng-show='!check.logs'>
+					<a href ng-click='check(m)' class='btn btn-default btn-primary btn-block' >Save Max</a>
+				</div>
+			</div>
+			<hr />
+			<a href ng-click='m.remove()' class='btn btn-default  btn-block'>Delete Max</a>
 		</div>
 	</form>
 </div>

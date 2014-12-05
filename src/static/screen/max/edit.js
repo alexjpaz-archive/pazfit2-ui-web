@@ -14,8 +14,29 @@ angular.module('app').config(function(ScreenProvider) {
 				$scope.m.date = new Date();
 			}
 
+			$scope.check = function(m) {
+				var q = {
+					where: {
+						date: {
+							"$gte": m.date
+						}
+					}
+				};
 
-			$scope.save = function(m) {
+				$scope.check = {};
+				Restangular.all('log').getList(q).then(function(logs) {
+					if(logs.length === 0) {
+						$scope.save(m);
+					} else {
+						$scope.check = {
+							logs: logs
+						};
+
+					}
+				});
+			};
+
+			$scope.save = function(m, force) {
 				m.save().then(function(m) {
 					$location.path('/max');
 				});
