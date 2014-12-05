@@ -7,11 +7,9 @@ angular.module('app').config(function(ScreenProvider) {
 			};
 			$scope.charts = {};
 
-			$scope.clickCalendar = function(day) {
-				$location
-					.path('/calendar')
-					.search('date',day.date)
-				;
+			$scope.selectDay = function(day, clndr) {
+				$scope.selectedDay = day;
+				clndr.active = day;
 			};
 
 			CalendarHelper.getEvents().then(function(calendar) {

@@ -4,14 +4,16 @@
 
 	&:empty { 
 		display: inline;
+		vertical-align: middle;
 	}
 }
 
 @mixin label-log-health($color, $iconCode) {
-	background: $color;
+	color: $color;
+	text-shadow: rgba(0,0,0,0.15) 1px 1px 0;
 
 	&::before {
-		color: white;
+		/*color: white;*/
 		content: $iconCode;
 	}
 }

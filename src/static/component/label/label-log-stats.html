@@ -1,10 +1,10 @@
 <span class='label-log-stats'>
 	<span ng-hide='labelLogStats'>N/A</span>
-	<span ng-show='labelLogStats'>
-		<span label-log-health='labelLogStats'></span>
-		<span class='label label--estimatedMax'>
-			<a ng-href='#/log/{{ labelLogStats._id }}/edit'>{{ labelLogStats.calculated.estimatedMax | number:0 }}</a>
+	<a ng-href='#/log/{{ labelLogStats._id }}/edit'>
+		<span ng-show='labelLogStats'>
+			<span label-log-health='labelLogStats'></span>
+			<span class='label label--estimatedMax'>{{ labelLogStats.calculated.estimatedMax | number:0 }}</span>
+			<span class='label label-default'>{{ labelLogStats.weight }} x {{ labelLogStats.reps }}</span>
 		</span>
-		<span class='label label-default'>{{ labelLogStats.weight }} x {{ labelLogStats.reps }}</span>
-	</span>
+	</a>
 </span>
